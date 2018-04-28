@@ -1,0 +1,44 @@
+﻿<Window x:Class="InfiniteAsyncSourceAdvancedSample.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:InfiniteAsyncSourceAdvancedSample"
+        xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid"
+        xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
+        xmlns:dxmvvm="http://schemas.devexpress.com/winfx/2008/xaml/mvvm"
+        xmlns:dxu="clr-namespace:DevExpress.Core;assembly=DevExpress.Xpf.Core.v18.1"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="600" Width="800"
+        xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core" 
+        dx:ThemeManager.ThemeName="Office2016WhiteSE">
+    <Grid>
+        <dxg:GridControl x:Name="grid" FilterGroupSortChanging="OnFilterGroupSortChanging">
+            <dxg:GridControl.Columns>
+                <dxg:GridColumn x:Name="hotColumn" FieldName="Hot" Visible="False" ShowInColumnChooser="False" AllowSorting="True" AllowedSortOrders="Descending" SortOrder="Descending"/>
+                <dxg:GridColumn x:Name="weekColumn" FieldName="Week" Visible="False" ShowInColumnChooser="False" AllowSorting="True" AllowedSortOrders="Descending" />
+
+                <dxg:GridColumn FieldName="Subject" IsSmart="True" Width="2*"/>
+                <dxg:GridColumn FieldName="User" IsSmart="True" Width="*"/>
+                <dxg:GridColumn FieldName="Created" IsSmart="True" Width="*"
+                                AllowSorting="True" DefaultSortOrder="Descending"
+                                AllowedDateTimeFilters="SingleDateRange" FilterPopupMode="DateSmart"
+                                AllowColumnFiltering="{DXBinding '$dxu:DefaultBooleanExtension.ToDefaultBoolean(!@e(hotColumn).IsSorted and !@e(weekColumn).IsSorted)'}">
+                    <dxg:GridColumn.EditSettings>
+                        <dxe:DateEditSettings DisplayFormat="H:mm MM/dd/yy"/>
+                    </dxg:GridColumn.EditSettings>
+                </dxg:GridColumn>
+                <dxg:GridColumn FieldName="Votes" IsSmart="True" Width="0.5*"
+                                AllowSorting="True" DefaultSortOrder="Descending"
+                                AllowedBinaryFilters="GreaterOrEqual,LessOrEqual" FilterPopupMode="Excel"
+                                AllowColumnFiltering="{DXBinding '$dxu:DefaultBooleanExtension.ToDefaultBoolean(@s.IsSorted)'}"/>
+                <dxg:GridColumn FieldName="Tags" IsSmart="True" Width="*"
+                                AllowedBinaryFilters="Equals"/>
+            </dxg:GridControl.Columns>
+            <dxg:GridControl.View>
+                <dxg:TableView CompactPanelShowMode="Always" CompactSortElementShowMode="Always" 
+                               ShowSearchPanelMode="Always" SearchStringToFilterCriteria="OnSearchStringToFilterCriteria"/>
+            </dxg:GridControl.View>
+        </dxg:GridControl>
+    </Grid>
+</Window>
