@@ -138,7 +138,7 @@ namespace InfiniteAsyncSourceAdvancedSample {
         }
 
         void OnFilterGroupSortChanging(object sender, FilterGroupSortChangingEventArgs e) {
-            e.SplittedColumnFilters.TryGetValue("Tags", out CriteriaOperator tagsFilter);
+            e.SplitColumnFilters.TryGetValue("Tags", out CriteriaOperator tagsFilter);
             e.SearchString = tagsFilter.Match(binary : (propertyName, value, type) => {
                 if(propertyName != "Tags" || type != BinaryOperatorType.Equal)
                     throw new InvalidOperationException();
@@ -146,11 +146,11 @@ namespace InfiniteAsyncSourceAdvancedSample {
             });
 
             var sortProperty = e.SortInfo.SingleOrDefault()?.PropertyName;
-            var invalidFilters = e.SplittedColumnFilters.Keys
+            var invalidFilters = e.SplitColumnFilters.Keys
                 .Where(key => !IsValidFilter(key, sortProperty))
                 .ToArray();
             foreach(var invalidFilter in invalidFilters)
-                e.SplittedColumnFilters.Remove(invalidFilter);
+                e.SplitColumnFilters.Remove(invalidFilter);
         }
 
         static bool IsValidFilter(string filterProperty, string sortProperty) {
