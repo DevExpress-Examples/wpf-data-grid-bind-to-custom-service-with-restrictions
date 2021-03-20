@@ -15,6 +15,7 @@ namespace InfiniteAsyncSourceAdvancedSample {
             var source = new InfiniteAsyncSource() {
                 CustomProperties = GetCustomProperties()
             };
+
             Unloaded += (o, e) => {
                 source.Dispose();
             };
@@ -28,7 +29,7 @@ namespace InfiniteAsyncSourceAdvancedSample {
             };
 
             grid.ItemsSource = source;
-        }       
+        }
 
         static PropertyDescriptorCollection GetCustomProperties() {
             var customProperties = TypeDescriptor.GetProperties(typeof(IssueData))
@@ -54,14 +55,14 @@ namespace InfiniteAsyncSourceAdvancedSample {
             IssueSortOrder sortOrder = GetIssueSortOrder(e);
             IssueFilter filter = MakeIssueFilter(e.Filter);
 
-            const int pageSize = 30;
+            int take = e.Take ?? 30;
             var issues = await IssuesService.GetIssuesAsync(
-                page: e.Skip / pageSize,
-                pageSize: pageSize,
+                skip: e.Skip,
+                take: take,
                 sortOrder: sortOrder,
                 filter: filter);
 
-            return new FetchRowsResult(issues, hasMoreRows: issues.Length == pageSize);
+            return new FetchRowsResult(issues, hasMoreRows: issues.Length == take);
         }
 
         static IssueSortOrder GetIssueSortOrder(FetchRowsAsyncEventArgs e) {

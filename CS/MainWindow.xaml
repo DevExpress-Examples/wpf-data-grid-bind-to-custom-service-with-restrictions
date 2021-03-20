@@ -7,11 +7,9 @@
         xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid"
         xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
         xmlns:dxmvvm="http://schemas.devexpress.com/winfx/2008/xaml/mvvm"
-        xmlns:dxu="clr-namespace:DevExpress.Core;assembly=DevExpress.Xpf.Core.v18.1"
+        xmlns:dxu="clr-namespace:DevExpress.Core;assembly=DevExpress.Xpf.Core.v21.1"
         mc:Ignorable="d"
-        Title="MainWindow" Height="600" Width="800"
-        xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core" 
-        dx:ThemeManager.ThemeName="Office2016WhiteSE">
+        Title="MainWindow" Height="600" Width="800">
     <Grid>
         <dxg:GridControl x:Name="grid" FilterGroupSortChanging="OnFilterGroupSortChanging">
             <dxg:GridControl.Columns>

@@ -24,13 +24,13 @@ namespace InfiniteAsyncSourceAdvancedSample {
         });
         #endregion
 
-        public async static Task<IssueData[]> GetIssuesAsync(int page, int pageSize, IssueSortOrder sortOrder, IssueFilter filter) {
-            await Task.Delay(300);
+        public async static Task<IssueData[]> GetIssuesAsync(int skip, int take, IssueSortOrder sortOrder, IssueFilter filter) {
+            await Task.Delay(300).ConfigureAwait(false);
             CheckRestrictions(sortOrder, filter);
             var issues = SortIssues(sortOrder, AllIssues.Value);
             if(filter != null)
                 issues = FilterIssues(filter, issues);
-            return issues.Skip(page * pageSize).Take(pageSize).ToArray();
+            return issues.Skip(skip).Take(take).ToArray();
         }
 
         static void CheckRestrictions(IssueSortOrder sortOrder, IssueFilter filter) {
