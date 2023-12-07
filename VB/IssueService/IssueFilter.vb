@@ -1,8 +1,12 @@
-﻿Imports System
+Imports System
 
 Namespace InfiniteAsyncSourceAdvancedSample
+
     Public Class IssueFilter
-        Public Sub New(Optional ByVal createdFrom? As Date = Nothing, Optional ByVal createdTo? As Date = Nothing, Optional ByVal minVotes? As Integer = Nothing, Optional ByVal maxVotes? As Integer = Nothing, Optional ByVal tag As String = Nothing)
+
+        Private _CreatedFrom As System.DateTime?, _CreatedTo As System.DateTime?, _MinVotes As Integer?, _MaxVotes As Integer?, _Tag As String
+
+        Public Sub New(ByVal Optional createdFrom As System.DateTime? = Nothing, ByVal Optional createdTo As System.DateTime? = Nothing, ByVal Optional minVotes As Integer? = Nothing, ByVal Optional maxVotes As Integer? = Nothing, ByVal Optional tag As String = Nothing)
             Me.CreatedFrom = createdFrom
             Me.CreatedTo = createdTo
             Me.MinVotes = minVotes
@@ -10,49 +14,53 @@ Namespace InfiniteAsyncSourceAdvancedSample
             Me.Tag = tag
         End Sub
 
-        Private privateCreatedFrom? As Date
-        Public Property CreatedFrom() As Date?
+        Public Property CreatedFrom As System.DateTime?
             Get
-                Return privateCreatedFrom
+                Return _CreatedFrom
             End Get
-            Private Set(ByVal value? As Date)
-                privateCreatedFrom = value
+
+            Private Set(ByVal value As System.DateTime?)
+                _CreatedFrom = value
             End Set
         End Property
-        Private privateCreatedTo? As Date
-        Public Property CreatedTo() As Date?
+
+        Public Property CreatedTo As System.DateTime?
             Get
-                Return privateCreatedTo
+                Return _CreatedTo
             End Get
-            Private Set(ByVal value? As Date)
-                privateCreatedTo = value
+
+            Private Set(ByVal value As System.DateTime?)
+                _CreatedTo = value
             End Set
         End Property
-        Private privateMinVotes? As Integer
-        Public Property MinVotes() As Integer?
+
+        Public Property MinVotes As Integer?
             Get
-                Return privateMinVotes
+                Return _MinVotes
             End Get
-            Private Set(ByVal value? As Integer)
-                privateMinVotes = value
+
+            Private Set(ByVal value As Integer?)
+                _MinVotes = value
             End Set
         End Property
-        Private privateMaxVotes? As Integer
-        Public Property MaxVotes() As Integer?
+
+        Public Property MaxVotes As Integer?
             Get
-                Return privateMaxVotes
+                Return _MaxVotes
             End Get
-            Private Set(ByVal value? As Integer)
-                privateMaxVotes = value
+
+            Private Set(ByVal value As Integer?)
+                _MaxVotes = value
             End Set
         End Property
-        Private privateTag As String
-        Public Property Tag() As String
+
+        Public Property Tag As String
             Get
-                Return privateTag
+                Return _Tag
             End Get
+
             Private Set(ByVal value As String)
-                privateTag = value
+                _Tag = value
             End Set
         End Property
     End Class

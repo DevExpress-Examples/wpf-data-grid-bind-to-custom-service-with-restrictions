@@ -1,4 +1,5 @@
-﻿Namespace InfiniteAsyncSourceAdvancedSample
+Namespace InfiniteAsyncSourceAdvancedSample
+
     Public Enum IssueSortOrder
         [Default]
         Hot
