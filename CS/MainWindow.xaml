@@ -7,7 +7,7 @@
         xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid"
         xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
         xmlns:dxmvvm="http://schemas.devexpress.com/winfx/2008/xaml/mvvm"
-        xmlns:dxu="clr-namespace:DevExpress.Core;assembly=DevExpress.Xpf.Core.v22.2"
+        xmlns:dxu="clr-namespace:DevExpress.Core;assembly=DevExpress.Xpf.Core.v24.2"
         mc:Ignorable="d"
         Title="MainWindow" Height="600" Width="800">
     <Grid>
