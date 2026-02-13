@@ -25,7 +25,7 @@ This example demonstrates how to bind to a service with restrictions (for exampl
 
 * [WPF Data Grid - Bind to InfiniteAsyncSource](https://github.com/DevExpress-Examples/wpf-data-grid-bind-to-infiniteasyncsource)
 <!-- feedback -->
-## Does this example address your development requirements/objectives?
+## Does This Example Address Your Development Requirements/Objectives?
 
 [<img src="https://www.devexpress.com/support/examples/i/yes-button.svg"/>](https://www.devexpress.com/support/examples/survey.xml?utm_source=github&utm_campaign=wpf-data-grid-bind-to-custom-service-with-restrictions&~~~was_helpful=yes) [<img src="https://www.devexpress.com/support/examples/i/no-button.svg"/>](https://www.devexpress.com/support/examples/survey.xml?utm_source=github&utm_campaign=wpf-data-grid-bind-to-custom-service-with-restrictions&~~~was_helpful=no)
 
